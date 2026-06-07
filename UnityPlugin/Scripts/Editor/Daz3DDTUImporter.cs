@@ -3,7 +3,7 @@
 
 
 using UnityEditor;
-using UnityEditor.Experimental.AssetImporters;
+
 using System.Collections.Generic;
 using System;
 using System.Collections;
@@ -14,8 +14,8 @@ using System.Runtime.InteropServices;
 namespace Daz3D
 {
 
-    [ScriptedImporter(1, "dtu", 0x7FFFFFFF)]
-    public class Daz3DDTUImporter : ScriptedImporter
+    [UnityEditor.AssetImporters.ScriptedImporter(1, "dtu", 0x7FFFFFFF)]
+    public class Daz3DDTUImporter : UnityEditor.AssetImporters.ScriptedImporter
     {
         public static bool AutoImportDTUChanges = true;
         public static bool GenerateUnityPrefab = true;
@@ -106,7 +106,7 @@ namespace Daz3D
         /// This will probably be the first DTU Brudge code which is executed
         /// when the DTU Bridge is first installed into Unity.
         /// </summary>
-        public override void OnImportAsset(AssetImportContext ctx)
+        public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)
         {
             if (Daz3DBridge.BatchConversionMode != 0) return;
 
